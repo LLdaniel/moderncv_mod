@@ -773,6 +773,12 @@
   July\or August\or September\or October\or November\or December\fi
   \space\number\day, \number\year}
 
+% german \today definition author=LLdaniel
+\def\today{\number\day.\space\ifcase\month\or
+  Januar\or Februar\or M\"{a}rz\or April\or Mai\or Juni\or
+  Juli\or August\or September\or Oktober\or November\or Dezember\fi
+  \space\number\year}
+
 %\newcommand{\widthofautobox}[1]{%
 %  \widthof{\begin{tabular}{@{}l@{}}#1\end{tabular}}}
 

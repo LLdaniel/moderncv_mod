@@ -73,8 +73,17 @@
   \par\addvspace{2.5ex}%
   \phantomsection{}% reset the anchor for hyperrefs
   \addcontentsline{toc}{section}{#2}%
-  \cvitem[0ex]{\strut\raggedleft\raisebox{\baseletterheight}{\color{color1}\rule{\hintscolumnwidth}{0.95ex}}}{\strut\sectionstyle{#2}}%
+  % original \cvitem
+  %\cvitem[0ex]{\strut\raggedleft\raisebox{\baseletterheight}{\color{color1}\rule{\hintscolumnwidth}{0.95ex}}}{\strut\sectionstyle{#2}}%
+  \cvitem[0ex]{\strut\raggedleft\raisebox{\baseletterheight}{\color{color1}\rule{\hintscolumnwidth}{0.95ex}}}{\strut\sectionstyle{#2}\sectionendingbar}% added section heading bar author=LLdaniel
   \par\nobreak\addvspace{1ex}\@afterheading}% to avoid a pagebreak after the heading
+
+% commands for section ending bar: author=LLdaniel
+\newlength{\barheight}
+\setlength{\barheight}{0.95ex}
+\newlength{\missinglength}
+\newcommand{\sectionendingbar}{\hspace{\separatorcolumnwidth}\color{color1}\rule[\baseletterheight]{\maincolumnwidth-\separatorcolumnwidth-\missinglength}{\barheight}}
+\newcommand{\measuresection}[1]{\settowidth{\missinglength}{\sectionstyle{#1}}} % measure the current section length
 
 \RenewDocumentCommand{\subsection}{sm}{%
   \par\addvspace{1ex}%
